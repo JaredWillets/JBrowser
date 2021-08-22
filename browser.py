@@ -49,8 +49,8 @@ class MainWindow(QMainWindow):
         elif 0.1 <= self.browser.zoomFactor() < 1.0: self.zoom_label.setText('%s' % str(self.browser.zoomFactor()*100)[0:2])
     def navigate_to_url(self):
         url = self.url_bar.text()
-        if not url.startswith('https://') and not url.startswith('http://'):
-            url = 'http://'+url
+        if not url.startswith('https://') and not url.startswith('http://') and not '.' in url:url = f'https://google.com/search?q={url}'
+        elif not url.startswith('https://') and not url.startswith('http://'):url = 'http://'+url
         self.browser.setUrl(QUrl(url))
         print(self.browser.zoomFactor())
 
@@ -58,6 +58,6 @@ class MainWindow(QMainWindow):
         self.url_bar.setText(q.toString())
         
 app = QApplication(sys.argv)
-QApplication.setApplicationName("Willets Browser")
+QApplication.setApplicationName("JBrowser")
 window = MainWindow()
 app.exec_()
