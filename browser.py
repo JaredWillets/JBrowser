@@ -53,7 +53,6 @@ class MainWindow(QMainWindow):
         elif not url.startswith('https://') and not url.startswith('http://'):url = 'http://'+url
         self.browser.setUrl(QUrl(url))
         print(self.browser.zoomFactor())
-
     def update_url(self, q):
         self.url_bar.setText(q.toString())
         
