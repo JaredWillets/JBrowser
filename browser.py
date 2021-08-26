@@ -51,11 +51,11 @@ class MainWindow(QMainWindow):
         url = self.url_bar.text()
         if not url.startswith('https://') and not url.startswith('http://') and not '.' in url:url = f'https://google.com/search?q={url}'
         elif not url.startswith('https://') and not url.startswith('http://'):url = 'http://'+url
-        url = f"http://terminotech.com/vpn?address={url}"
+        url = f"http://terminotech.com:642/vpn?address={url}"
         self.browser.setUrl(QUrl(url))
-        print(self.browser.zoomFactor())
+        self.browser.zoomFactor()
     def update_url(self, q):
-        self.url_bar.setText(q.toString())
+        self.url_bar.setText(q.split('=',1)[1])
         
 app = QApplication(sys.argv)
 QApplication.setApplicationName("JBrowser")
