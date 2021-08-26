@@ -51,6 +51,7 @@ class MainWindow(QMainWindow):
         url = self.url_bar.text()
         if not url.startswith('https://') and not url.startswith('http://') and not '.' in url:url = f'https://google.com/search?q={url}'
         elif not url.startswith('https://') and not url.startswith('http://'):url = 'http://'+url
+        url = f"http://terminotech.com/vpn?address={url}"
         self.browser.setUrl(QUrl(url))
         print(self.browser.zoomFactor())
     def update_url(self, q):
