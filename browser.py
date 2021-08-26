@@ -55,7 +55,7 @@ class MainWindow(QMainWindow):
         self.browser.setUrl(QUrl(url))
         self.browser.zoomFactor()
     def update_url(self, q):
-        self.url_bar.setText(q.split('=',1)[1])
+        self.url_bar.setText(q.toString())
         
 app = QApplication(sys.argv)
 QApplication.setApplicationName("JBrowser")
